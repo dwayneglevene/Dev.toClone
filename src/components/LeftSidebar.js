@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
     FcHome,
     FcReading,
@@ -21,6 +21,11 @@ import {
   
 
 const LeftSidebar = () => {
+    const [more,setMore] = useState(false);
+
+    const toggle = () => {
+        setMore(!more);
+    }
     return (
 
         <aside className="leftBar">
@@ -67,11 +72,66 @@ const LeftSidebar = () => {
                         Tags
                     </a>
                     </li>
-                  <li>
+                  <li className={more ? "more-hidden" : "more"}>
                       <i></i>
-                        <a href="#">More ...</a>
+                        <a href="#" onClick={toggle}>More ...</a>
 
                   </li>
+
+                  <div className={more ? "list" : "list hidden"}>
+                      <li>
+                          <a href="/code">
+                              <i>
+                                  <FcAbout/>
+                              </i>
+                              Code of Conduct
+                          </a>
+                      </li>
+                      <li>
+                          <a href="/FAQ">
+                              <i>
+                                  <FcIdea/>
+                              </i>
+                              FAQ
+                          </a>
+                      </li>
+                      <li>
+                      <a href="/Tags">
+                        
+                              <i>
+                                  <FaTags/>
+                              </i>
+                              
+                          </a>
+                      </li>
+                      <li>
+                      <a href="/DEV">
+                        
+                              <i>
+                                  <FcShop/>
+                              </i>
+                              DevShop
+                          </a>
+                      </li>
+                      <li>
+                      <a href="/sponsers">
+                        
+                              <i>
+                                  <FcLike/>
+                              </i>
+                              Sponser
+                          </a>
+                      </li>
+                      <li>
+                      <a href="/about">
+                        
+                              <i>
+                                  <FaDev/>
+                              </i>
+                              About
+                          </a>
+                      </li>
+                  </div>
 
 
                 </ul>
